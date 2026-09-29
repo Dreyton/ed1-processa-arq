@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -30,9 +32,13 @@ public class Principal {
             //PrintWriter, (Exercicio: Utilizar o PrintWriter para
             // imprimir os alunos em um arquivo chamado
             // saida.txt)
+            Collections.sort(alunos);
+            PrintWriter writer = new PrintWriter("saida.txt");
             for(Aluno aluno : alunos){
-                System.out.println(aluno);
+                writer.println(aluno);
             }
+            sc.close();
+            writer.close();
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado!" + e.getMessage());
         }

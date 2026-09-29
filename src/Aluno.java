@@ -1,4 +1,4 @@
-public class Aluno {
+public class Aluno implements Comparable<Aluno>{
     private Long matricula;
     private String nome;
     private Double p1;
@@ -88,6 +88,19 @@ public class Aluno {
     public String toString() {
         //String.format(), (Exercicio: Formatar o retorno, especificamente
         // calculaMedia() com apenas 1 casa decimal)
-        return matricula + " " + nome + " " + calculaMedia() + " " + getSituacao();
+        /*
+        * d - int, Integer, long, Long, short....
+        * f - float, double, Float, Double
+        * s - String
+        * c - char
+        * */
+        return String.format("%d %s %.1f %c", matricula, nome, calculaMedia(), getSituacao());
+        //return matricula + " " + nome + " " + calculaMedia() + " " + getSituacao();
+    }
+
+
+    @Override
+    public int compareTo(Aluno o) {
+        return Long.compare(this.matricula, o.matricula);
     }
 }
